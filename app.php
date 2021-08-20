@@ -34,3 +34,26 @@ $guess = "1470"; // Tahmin edilen değer
  * 
  * yazması gerekiyor.
  */
+
+function calculate_bmr($gender, $weight ,$height ,$age){
+    if($gender=="female"){
+        $bmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
+    }
+    else if($gender=="male"){
+        $bmr = 88.362 + (13.397* $weight) + (4.799 * $height) - (5.677 * $age);
+    }
+    return $bmr;
+ }
+ function compare($guess, $bmr){
+    if($guess < $bmr){
+        echo "BMR:",$bmr," Tahmin değerinden büyük";
+    }
+    else if($guess > $bmr){
+        echo "BMR:",$bmr," Tahmin değerinden düşük";
+    }
+    elseif($guess == $bmr){
+        echo "BMR:",$bmr," Tahmin değerin ile aynı";
+    }
+ }
+ 
+ compare($guess,calculate_bmr($gender, $weight ,$height ,$age));
